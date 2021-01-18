@@ -1,0 +1,50 @@
+import turtle
+import pygame as pg
+
+
+pg.init()
+
+# Screen
+wn = turtle.Screen()
+wn.bgcolor("olive")
+wn.title('Turtle Draw')
+Screen_Width = 800
+Screen_Height = 600
+
+# Turtle Player
+t_1 = turtle.Turtle()
+t_1.color("blue")
+t_1.pendown()
+t_1.shape('turtle')
+
+speed = 2
+
+
+def up():
+    if t_1.heading() != 270:
+        t_1.setheading(90)
+
+
+def down():
+    if t_1.heading() != 90:
+        t_1.setheading(270)
+
+
+def left():
+    if t_1.heading() != 0:
+        t_1.setheading(180)
+
+
+def right():
+    if t_1.heading() != 180:
+        t_1.setheading(0)
+
+
+wn.listen()
+wn.onkey(up, 'Up')
+wn.onkey(down, 'Down')
+wn.onkey(left, 'Left')
+wn.onkey(right, 'Right')
+
+while True:
+    t_1.forward(speed)
